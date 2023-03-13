@@ -10,7 +10,7 @@ import usersRouter from "./routes/users";
 
 import dotenv from 'dotenv'
 import connectMongoDB from "./config";
-import { createData, getDAta } from "./controller/user";
+// import { createData, getDAta } from "./controller/user";
 dotenv.config()
 
 connectMongoDB()
@@ -24,8 +24,8 @@ app.set("view engine", "jade");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 

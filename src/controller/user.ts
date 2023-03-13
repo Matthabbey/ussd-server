@@ -1,10 +1,29 @@
-import express,{Request, Response} from 'express'
+import express,{Request, response, Response} from 'express'
 
-export const getDAta = (req: Request, res: Response)=>{
-    res.status(200).json("successful")
-}
+// export const getDAta = (req: Request, res: Response)=>{
+//     res.status(200).json("successful")
+// }
 
 export const createData = (req: Request, res: Response)=>{
-    console.log(req.body);
+    const { phoneNumber, text, sessionId } = req.body
+    // console.log(phoneNumber);
+    
+    let response = ""
+    if(text === ''){
+        response = 'CON Enter your Name here'
+    }
+
+
+
+
+
+    setTimeout(()=>{
+        console.log(response, "2");
+        res.send(response)
+        res.end()
+    }, 2000)
+    
+    // res.set("Content-Type: text/plain");
+    // res.send(response);
     
 }
