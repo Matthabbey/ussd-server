@@ -3,12 +3,14 @@ import express, { Request, Response, NextFunction } from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
+import bodyParser from "body-parser";
 
-import indexRouter from "./routes/index";
+// import indexRouter from "./routes/index";
 import usersRouter from "./routes/users";
 
 import dotenv from 'dotenv'
 import connectMongoDB from "./config";
+import { createData, getDAta } from "./controller/user";
 dotenv.config()
 
 connectMongoDB()
@@ -21,12 +23,14 @@ app.set("view engine", "jade");
 
 app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
+// app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+// app.use("/", indexRouter);
+// app.use(usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -49,10 +53,17 @@ app.use(function (
   res.render("error");
 });
 
-const port = 5000;
+const port = 80;
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+
+
+app.get("/", getDAta)
+app.post("/", createData)
+console.log();
+
 
 export default app;
