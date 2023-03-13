@@ -10,7 +10,7 @@ export const createData = (req: Request, res: Response)=>{
     
     let response = ""
     if(text === ''){
-        response = 'CON Enter your Name here'
+        response = `CON\n enter your Name here`
     }
 
 
