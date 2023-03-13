@@ -25,12 +25,12 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
-// app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 // app.use("/", indexRouter);
-// app.use(usersRouter);
+app.use(usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -53,7 +53,7 @@ app.use(function (
   res.render("error");
 });
 
-const port = 80;
+const port = 8000;
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
@@ -61,9 +61,9 @@ app.listen(port, () => {
 
 
 
-app.get("/", getDAta)
-app.post("/", createData)
-console.log();
+// app.get("/", getDAta)
+// app.post("/", createData)
+// console.log();
 
 
 export default app;
