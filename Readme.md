@@ -6,6 +6,8 @@
 
 # Install Node.js and a web framework like Express.
 
+# Download Ngrok to link your localserver with the ussd server session
+
 # Create a new project folder and install the necessary dependencies using npm.
 
 # Set up a new route to handle incoming USSD requests. 
