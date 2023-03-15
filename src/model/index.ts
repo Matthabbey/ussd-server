@@ -16,4 +16,4 @@ const userSchema = new mongoose.Schema({
 });
 
 //Export the model
-export const DataModel = mongoose.model('Data', userSchema);
+export const DataModel = mongoose.model('Ussd', userSchema);
