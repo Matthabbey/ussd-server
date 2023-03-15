@@ -2,25 +2,16 @@ import mongoose from "mongoose"; // Erase if already required
 
 // Declare the Schema of the Mongo model
 const userSchema = new mongoose.Schema({
-    name:{
+    fullName:{
         type:String,
         required:true,
         unique:true,
         index:true,
     },
-    email:{
+    id_number:{
         type:String,
         required:true,
         unique:true,
-    },
-    mobile:{
-        type:String,
-        required:true,
-        unique:true,
-    },
-    password:{
-        type:String,
-        required:true,
     },
 });
 
